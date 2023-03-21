@@ -6,8 +6,8 @@ import HelloWorld from "./Component/HelloWorld/helloWorld";
 function App() {
   return (
     <div className="container mx-auto">
-      <Button/>
-        <HelloWorld/>
+      <Button name='First Button'/>
+        <HelloWorld text="Hello World Good Morining "/>
 
 
     </div>
