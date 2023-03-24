@@ -59,7 +59,7 @@ class Post extends Component {
                    }</button>
                 </div>
                 <hr/>
-                {this.state.showPosts ? (
+                {this.state.showPosts && (
                     <div style={{
                         display:"flex",
                     }}>
@@ -72,7 +72,7 @@ class Post extends Component {
                             decription={this.state.posts[1].description}
                         />
                     </div>
-                ) : null}
+                ) }
             </div>
         )
     }
