@@ -7,66 +7,19 @@ class Post extends Component {
             {title:'Post 1', description:'post1 description'},
             {title:'Post 2', description:'post2 description'},
         ],
-        postTitle:'Post List'
+        postTitle:'Post List',
+        showPosts: true,
+        count: true,
     };
-    updateTitleHandle(title,e){
-        e.preventDefault();
-        console.log('Updating title')
+
+    togglePostsHandler = () =>{
         this.setState({
-            postTitle:title,
-        });
-    };
-    titleHandle = (title,e) =>{
-        e.preventDefault();
-        console.log('Updating title via property function ')
-        this.setState({
-            postTitle:title,
-        });
+            showPosts: !this.state.showPosts
+        })
     }
-
-    render() {
-
-        return(
-            <div >
-                <h2  style={{
-                    fontSize:"xx-large",
-                    marginTop: "1rem",
-                    marginBottom: "1rem",
-                }}>{this.state.postTitle}</h2>
-                <div>
-                <a onClick={this.titleHandle.bind(
-                    this, 'Chathuranga'
-                )}
-                   style={{
-                    paddingTop: "0.5rem",
-                    paddingBottom: "0.5rem",
-                    paddingLeft: "2rem",
-                    paddingRight: "2rem",
-                    backgroundColor:"red",
-                    color:"white",
-
-                }}
-                   href='http://www.google.com'>
-                    Update with property
-                </a>
-                    <a onClick= {
-                        this.updateTitleHandle.bind(this,
-                            'Modified'
-                        )}
-                       style={{
-                        paddingTop: "0.5rem",
-                        paddingBottom: "0.5rem",
-                        paddingLeft: "2rem",
-                        paddingRight: "2rem",
-                        backgroundColor:"red",
-                        color:"white",
-
-                    }}
-                       href='http://www.google.com'>
-                        Update Via Method
-                    </a>
-                </div>
-                <hr/>
+    getPosts(){
+        if (!this.state.showPosts) return null;
+        return (
             <div style={{
                 display:"flex",
             }}>
@@ -79,6 +32,40 @@ class Post extends Component {
                     decription={this.state.posts[1].description}
                 />
             </div>
+        )
+    }
+
+
+    render() {
+        let posts = null;
+        if(this.state.showPosts){
+
+        }
+
+        return(
+            <div >
+                <div>{this.state.count !==0 && 'show Count'}</div>
+                <h2  style={{
+                    fontSize:"xx-large",
+                    marginTop: "1rem",
+                    marginBottom: "1rem",
+                }}>{this.state.postTitle}</h2>
+                <div>
+                   <button style={{
+                      backgroundColor:"red",
+                       color:"white",
+                       paddingLeft:"3rem",
+                       paddingRight:"3rem",
+                       paddingTop:"2rem",
+                       paddingBottom:"2rem"
+                   }} onClick={this.togglePostsHandler}>{
+                       this.state.showPosts
+                       ? 'Hide Posts' :
+                       'Show Posts'
+                   }</button>
+                </div>
+                <hr/>
+                {this.getPosts()}
             </div>
         )
     }
