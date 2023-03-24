@@ -59,7 +59,20 @@ class Post extends Component {
                    }</button>
                 </div>
                 <hr/>
-                {posts}
+                {this.state.showPosts ? (
+                    <div style={{
+                        display:"flex",
+                    }}>
+                        <SinglePost
+                            title={this.state.posts[0].title}
+                            decription={this.state.posts[0].description}
+                        />
+                        <SinglePost
+                            title={this.state.posts[1].title}
+                            decription={this.state.posts[1].description}
+                        />
+                    </div>
+                ) : null}
             </div>
         )
     }
