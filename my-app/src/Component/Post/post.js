@@ -1,6 +1,7 @@
 import {Component} from "react";
 import SinglePost from "../SinglePost/singlePost";
 import AddPost from "../AddPost/AddPost";
+import Dialog from "../Dialog/dialog";
 
 class Posts extends Component {
     state = {
@@ -74,9 +75,18 @@ class Posts extends Component {
                         <SinglePost
                             key={post.id}
                             title={post.title}
-                            titleChange={this.onChangeTitleHandler.bind(this,post.id)}
+                            addpost={<AddPost/>}
                             description={post.description}
-                        />
+                        >
+                            <div className='my-2'>
+                                <input className='px-5 py-1 border border-gray-500 rounded-xl' type='text'
+                                       value={post.title}
+                                       onChange={this.onChangeTitleHandler.bind(
+                                           this,
+                                           post.id
+                                       )}/>
+                            </div>
+                        </SinglePost>
                     );
                 })}
             </div>
@@ -128,8 +138,25 @@ class Posts extends Component {
                     </button>
                 </div>
                 <hr />
+
                 {this.getPosts()}
+                <div style={{
+                    display:'flex'
+                }}>
+                <div style={{
+                    flex:"5"
+                }}>
                 <AddPost></AddPost>
+                </div>
+                <div style={{
+                    flex:"1"
+                }}>
+                        <Dialog>
+                            <div>Showing the dialog data</div>
+                        </Dialog>
+
+                </div>
+                </div>
             </div>
         );
     }

@@ -17,11 +17,8 @@ class SinglePost extends Component{
                     fontWeight:"bold"
                 }}>{this.props.title}</h3>
                 <div>{this.props.decription}</div>
-                <div className='my-2'>
-                    <input className='px-5 py-1 border border-gray-500 rounded-xl' type='text'
-                    value={this.props.title}
-                    onChange={this.props.titleChange}/>
-                </div>
+                <div>{this.props.children}</div>
+                <div>{this.props.addpost}</div>
             </div>
         )
     }
