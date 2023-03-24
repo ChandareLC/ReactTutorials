@@ -9,6 +9,7 @@ class Post extends Component {
         ],
         postTitle:'Post List',
         showPosts: true,
+        count: true,
     };
 
     togglePostsHandler = () =>{
@@ -16,29 +17,34 @@ class Post extends Component {
             showPosts: !this.state.showPosts
         })
     }
+    getPosts(){
+        if (!this.state.showPosts) return null;
+        return (
+            <div style={{
+                display:"flex",
+            }}>
+                <SinglePost
+                    title={this.state.posts[0].title}
+                    decription={this.state.posts[0].description}
+                />
+                <SinglePost
+                    title={this.state.posts[1].title}
+                    decription={this.state.posts[1].description}
+                />
+            </div>
+        )
+    }
 
 
     render() {
         let posts = null;
         if(this.state.showPosts){
-            posts = (
-                <div style={{
-                    display:"flex",
-                }}>
-                    <SinglePost
-                        title={this.state.posts[0].title}
-                        decription={this.state.posts[0].description}
-                    />
-                    <SinglePost
-                        title={this.state.posts[1].title}
-                        decription={this.state.posts[1].description}
-                    />
-                </div>
-            )
+
         }
 
         return(
             <div >
+                <div>{this.state.count !==0 && 'show Count'}</div>
                 <h2  style={{
                     fontSize:"xx-large",
                     marginTop: "1rem",
@@ -59,20 +65,7 @@ class Post extends Component {
                    }</button>
                 </div>
                 <hr/>
-                {this.state.showPosts && (
-                    <div style={{
-                        display:"flex",
-                    }}>
-                        <SinglePost
-                            title={this.state.posts[0].title}
-                            decription={this.state.posts[0].description}
-                        />
-                        <SinglePost
-                            title={this.state.posts[1].title}
-                            decription={this.state.posts[1].description}
-                        />
-                    </div>
-                ) }
+                {this.getPosts()}
             </div>
         )
     }
