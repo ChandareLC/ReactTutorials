@@ -1,5 +1,6 @@
 import {Component} from "react";
 import SinglePost from "../SinglePost/singlePost";
+import AddPost from "../AddPost/AddPost";
 
 class Posts extends Component {
     state = {
@@ -115,6 +116,7 @@ class Posts extends Component {
                 </div>
                 <hr />
                 {this.getPosts()}
+                <AddPost></AddPost>
             </div>
         );
     }
