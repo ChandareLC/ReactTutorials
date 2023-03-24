@@ -7,24 +7,35 @@ class Post extends Component {
             {title:'Post 1', description:'post1 description'},
             {title:'Post 2', description:'post2 description'},
         ],
-        postTitle:'Post List'
+        postTitle:'Post List',
+        showPosts: true,
     };
-    updateTitleHandle(title,e){
-        e.preventDefault();
-        console.log('Updating title')
+
+    togglePostsHandler = () =>{
         this.setState({
-            postTitle:title,
-        });
-    };
-    titleHandle = (title,e) =>{
-        e.preventDefault();
-        console.log('Updating title via property function ')
-        this.setState({
-            postTitle:title,
-        });
+            showPosts: !this.state.showPosts
+        })
     }
 
+
     render() {
+        let posts = null;
+        if(this.state.showPosts){
+            posts = (
+                <div style={{
+                    display:"flex",
+                }}>
+                    <SinglePost
+                        title={this.state.posts[0].title}
+                        decription={this.state.posts[0].description}
+                    />
+                    <SinglePost
+                        title={this.state.posts[1].title}
+                        decription={this.state.posts[1].description}
+                    />
+                </div>
+            )
+        }
 
         return(
             <div >
@@ -34,51 +45,21 @@ class Post extends Component {
                     marginBottom: "1rem",
                 }}>{this.state.postTitle}</h2>
                 <div>
-                <a onClick={this.titleHandle.bind(
-                    this, 'Chathuranga'
-                )}
-                   style={{
-                    paddingTop: "0.5rem",
-                    paddingBottom: "0.5rem",
-                    paddingLeft: "2rem",
-                    paddingRight: "2rem",
-                    backgroundColor:"red",
-                    color:"white",
-
-                }}
-                   href='http://www.google.com'>
-                    Update with property
-                </a>
-                    <a onClick= {
-                        this.updateTitleHandle.bind(this,
-                            'Modified'
-                        )}
-                       style={{
-                        paddingTop: "0.5rem",
-                        paddingBottom: "0.5rem",
-                        paddingLeft: "2rem",
-                        paddingRight: "2rem",
-                        backgroundColor:"red",
-                        color:"white",
-
-                    }}
-                       href='http://www.google.com'>
-                        Update Via Method
-                    </a>
+                   <button style={{
+                      backgroundColor:"red",
+                       color:"white",
+                       paddingLeft:"3rem",
+                       paddingRight:"3rem",
+                       paddingTop:"2rem",
+                       paddingBottom:"2rem"
+                   }} onClick={this.togglePostsHandler}>{
+                       this.state.showPosts
+                       ? 'Hide Posts' :
+                       'Show Posts'
+                   }</button>
                 </div>
                 <hr/>
-            <div style={{
-                display:"flex",
-            }}>
-                <SinglePost
-                    title={this.state.posts[0].title}
-                    decription={this.state.posts[0].description}
-                />
-                <SinglePost
-                    title={this.state.posts[1].title}
-                    decription={this.state.posts[1].description}
-                />
-            </div>
+                {posts}
             </div>
         )
     }
