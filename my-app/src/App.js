@@ -6,6 +6,7 @@ import Post from "./Component/Post/post";
 import Sidebar from "./Component/SideBar/sidebar";
 import ButtonContext from "./Component/Context/buttonContext";
 import UserContext from "./Component/Context/UserContext";
+import Navigation from "./Component/Navigation/navigation";
 
 
 function App() {
@@ -19,11 +20,14 @@ function App() {
     <div className="container mx-auto">
         <div className='flex'>
             <div className='w-1/5'>
-           <ButtonContext.Provider value='Chathuranga Lakshan Context'>
-               <UserContext.Provider value={userData}>
-                <Sidebar />
-               </UserContext.Provider>
-           </ButtonContext.Provider>
+                <Sidebar>
+                    <Navigation>
+                        <div>
+                            <a href="">Chathuranaga</a>
+                            <div>{userData.greet()}</div>
+                        </div>
+                    </Navigation>
+                </Sidebar>
             </div>
        <div className='w-4/5'>
              <Post/>

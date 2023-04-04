@@ -7,19 +7,7 @@ export  default  class Navigation extends  Component{
     render() {
         return (
         <div>
-            <ButtonContext.Consumer>
-                {(value) => {
-                    return <div><a href='#'>{value}</a>
-                        <UserContext.Consumer>
-                            {(userValue) => {
-                                return <div>{userValue.greet()} </div>
-                            }
-                            }
-                        </UserContext.Consumer>
-                    </div>
-                }}
-            </ButtonContext.Consumer>
-
+            {this.props.children}
 
         </div>
         );
