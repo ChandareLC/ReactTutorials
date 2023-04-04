@@ -4,29 +4,41 @@ import AddPost from "../AddPost/AddPost";
 import Dialog from "../Dialog/dialog";
 
 class Posts extends Component {
-    state = {
-        posts: [
-            {
-                id: '1',
-                title: 'post 1',
-                description: 'post1 description 1',
-            },
-            {
-                id: '2',
-                title: 'post 2',
-                description: 'post1 description 2',
-            },
-            {
-                id: '3',
-                title: 'post 3',
-                description: 'post1 description 2',
-            },
-        ],
 
-        postTitle: 'Posts List',
-        showPosts: true,
-        count: false,
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            posts: [
+                {
+                    id: '1',
+                    title: 'post 1',
+                    description: 'post1 description 1',
+                },
+                {
+                    id: '2',
+                    title: 'post 2',
+                    description: 'post1 description 2',
+                },
+                {
+                    id: '3',
+                    title: 'post 3',
+                    description: 'post1 description 2',
+                },
+            ],
+
+            postTitle: 'Posts List',
+            showPosts: true,
+            count: false,
+        };
+        console.log('[posts.js] constructor called');
+    }
+    static getDerivedStateFormProps(props,state){
+        console.log('[posts.js] get derived called');
+       return state;
+    }
+    componentDidMount() {
+        console.log('[posts.js] Component Did Mount called')
+    }
 
     togglePostsHandler = () => {
         this.setState({
@@ -95,23 +107,23 @@ class Posts extends Component {
 
     render() {
         let posts = null;
-
-        if (this.state.showPosts) {
-            posts = (
-                <div style={{
-                    display:"flex",
-                }}>
-                    <SinglePost
-                        title={this.state.posts[0].title}
-                        description={this.state.posts[0].description}
-                    />
-                    <SinglePost
-                        title={this.state.posts[1].title}
-                        description={this.state.posts[1].description}
-                    />
-                </div>
-            );
-        }
+       console.log('[Post.js] render called ')
+        // if (this.state.showPosts) {
+        //     posts = (
+        //         <div style={{
+        //             display:"flex",
+        //         }}>
+        //             <SinglePost
+        //                 title={this.state.posts[0].title}
+        //                 description={this.state.posts[0].description}
+        //             />
+        //             <SinglePost
+        //                 title={this.state.posts[1].title}
+        //                 description={this.state.posts[1].description}
+        //             />
+        //         </div>
+        //     );
+        // }
         return (
             <div>
                 <div>{this.state.count && 'show Count'}</div>

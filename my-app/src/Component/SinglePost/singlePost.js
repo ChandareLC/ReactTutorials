@@ -1,7 +1,20 @@
 import {Component} from "react";
 
 class SinglePost extends Component{
+    constructor(props) {
+        super(props)
+        console.log('[Single Post] Constructor called')
+    }
+
+    static getDerivedStateFromProps(props,state){
+        console.log('[Single Post] get derived called');
+        return state
+
+    }
+
+
     render() {
+        console.log('[Single Post] render called');
 
         return(
             <div style={
@@ -21,6 +34,9 @@ class SinglePost extends Component{
                 <div>{this.props.addpost}</div>
             </div>
         )
+    }
+    componentDidMount() {
+        console.log('[Single Post] Did Mount called');
     }
 }
 
