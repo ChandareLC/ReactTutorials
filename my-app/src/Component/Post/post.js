@@ -36,6 +36,12 @@ class Posts extends Component {
         console.log('[posts.js] get derived called');
        return state;
     }
+
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        console.log('[posts.js] updated fired');
+        return true;
+    }
+
     componentDidMount() {
         console.log('[posts.js] Component Did Mount called')
     }
@@ -171,6 +177,18 @@ class Posts extends Component {
                 </div>
             </div>
         );
+    }
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log('[posts.js] snapshot fired');
+        return null
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('[posts.js] component did updated fired');
+    }
+
+    componentWillUnmount() {
+        console.log('[posts.js] component unmount called');
     }
 }
 
