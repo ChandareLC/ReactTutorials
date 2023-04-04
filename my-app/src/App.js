@@ -7,6 +7,7 @@ import Sidebar from "./Component/SideBar/sidebar";
 import ButtonContext from "./Component/Context/buttonContext";
 import UserContext from "./Component/Context/UserContext";
 import Navigation from "./Component/Navigation/navigation";
+import {ErrorBoundary} from "./Component/ErrorBoundary/ErrorBoundary";
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
                     </div>
                 </Sidebar>
             </div>
-       <div className='w-4/5'>
+            <div className='w-4/5'>
              <Post/>
 
 
