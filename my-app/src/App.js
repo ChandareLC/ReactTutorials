@@ -14,19 +14,26 @@ function App() {
         name: 'Chathuranga',
         greet: function (){
             return 'Hello ' + this.name
-        }
-    }
+        },
+    };
+
+    let topBar = (
+        <div>
+            <a href="">Chathuranaga</a>
+            <div>{userData.greet()}</div>
+        </div>
+    )
   return (
     <div className="container mx-auto">
         <div className='flex'>
             <div className='w-1/5'>
+                {/*<Sidebar name ={topBar}>*/}
+                {/*</Sidebar>*/}
                 <Sidebar>
-                    <Navigation>
-                        <div>
-                            <a href="">Chathuranaga</a>
-                            <div>{userData.greet()}</div>
-                        </div>
-                    </Navigation>
+                    <div>
+                        <a href=''>CHathuranga Lakshan</a>
+                        <div> {userData.greet()}</div>
+                    </div>
                 </Sidebar>
             </div>
        <div className='w-4/5'>
