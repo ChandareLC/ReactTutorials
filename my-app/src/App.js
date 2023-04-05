@@ -11,6 +11,7 @@ import {ErrorBoundary} from "./Component/ErrorBoundary/ErrorBoundary";
 import Category from "./Component/Category/Category";
 import RefTextInput from "./Component/RefTextInput/RefTextInput";
 import {ParentRefTextInput} from "./Component/RefTextInput/ParentRefTextInput";
+import CallbackRefInputRef from "./Component/RefTextInput/CallbackRefInputRef";
 
 
 function App() {
@@ -48,8 +49,11 @@ function App() {
                     <Category name='Category'/>
                 </div>
                 <div>
-             <Post/>
+                    <CallbackRefInputRef />
                 </div>
+             {/*   <div>*/}
+             {/*<Post/>*/}
+             {/*   </div>*/}
 
 
     </div>
