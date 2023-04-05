@@ -10,6 +10,7 @@ import Navigation from "./Component/Navigation/navigation";
 import {ErrorBoundary} from "./Component/ErrorBoundary/ErrorBoundary";
 import Category from "./Component/Category/Category";
 import RefTextInput from "./Component/RefTextInput/RefTextInput";
+import {ParentRefTextInput} from "./Component/RefTextInput/ParentRefTextInput";
 
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
             </div>
             <div className='w-4/5'>
                 <div>
-                    <RefTextInput/>
+                    <ParentRefTextInput/>
                 </div>
                 <div>
                     <Category name='Category'/>
