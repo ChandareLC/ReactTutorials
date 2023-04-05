@@ -9,6 +9,7 @@ import UserContext from "./Component/Context/UserContext";
 import Navigation from "./Component/Navigation/navigation";
 import {ErrorBoundary} from "./Component/ErrorBoundary/ErrorBoundary";
 import Category from "./Component/Category/Category";
+import RefTextInput from "./Component/RefTextInput/RefTextInput";
 
 
 function App() {
@@ -39,6 +40,9 @@ function App() {
                 </Sidebar>
             </div>
             <div className='w-4/5'>
+                <div>
+                    <RefTextInput/>
+                </div>
                 <div>
                     <Category name='Category'/>
                 </div>
