@@ -8,6 +8,7 @@ import ButtonContext from "./Component/Context/buttonContext";
 import UserContext from "./Component/Context/UserContext";
 import Navigation from "./Component/Navigation/navigation";
 import {ErrorBoundary} from "./Component/ErrorBoundary/ErrorBoundary";
+import Category from "./Component/Category/Category";
 
 
 function App() {
@@ -38,7 +39,12 @@ function App() {
                 </Sidebar>
             </div>
             <div className='w-4/5'>
+                <div>
+                    <Category name='Category'/>
+                </div>
+                <div>
              <Post/>
+                </div>
 
 
     </div>
